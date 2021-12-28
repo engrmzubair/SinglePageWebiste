@@ -11,8 +11,8 @@
   <title>Mizuxe</title>
 </head>
 
-<body class="bodytop">
-  <nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+<body class="bodytop" id="home" data-bs-spy="scroll" data-bs-target="#main-nav">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
     <div class="container">
       <a href="#home" class="navbar-brand">
         <img src="img/mlogo.png" height="50" width="50" alt="">
@@ -364,10 +364,31 @@
   <script src=" https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
+
+    // init scrollspy
+
+    $('body').scrollspy({ target: '#main-nav' });
+    // Smooth Scrolling
+    $("#main-nav a").on('click', function (event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+
+        const hash = this.hash;
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function () {
+
+          window.location.hash = hash;
+        });
+      }
+    });
   </script>
 </body>
 

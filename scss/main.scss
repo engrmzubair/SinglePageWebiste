@@ -21,6 +21,7 @@ $primary-overlay: rgba(50,146,166,0.8);
   background: url('../img/mountains.jpg');
   min-height: 600px;
 
+
   .primary-overlay{
     background: $primary-overlay;
     position: absolute;
@@ -34,7 +35,18 @@ $primary-overlay: rgba(50,146,166,0.8);
   width: 50%;
   margin: auto;
 }
-
+#authors{
+  img {
+    margin-top: -50px;
+  }
+.card:hover {
+  background: $primary;
+  color: #fff;
+}
+.fab{
+  color: white;
+}
+}
 
 
 
